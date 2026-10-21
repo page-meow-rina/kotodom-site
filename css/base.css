@@ -1,0 +1,44 @@
+/* ============================================================
+   КотоДом — базовые стили (извлечено из монолитного index.html)
+   ============================================================ */
+
+:root{
+  --cream:#fff5f8;
+  --cream-2:#ffe9f1;
+  --beige:#ffd6e6;
+  --tan:#f7a8c8;
+  --brown:#e0558f;
+  --brown-dark:#a8305f;
+  --ink:#5c2a40;
+  --white:#ffffff;
+  --shadow: 0 10px 30px rgba(168,48,95,0.15);
+  --radius: 18px;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:'Nunito', sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+h1,h2,h3{font-family:'Playfair Display', serif; color:var(--brown-dark);}
+
+img, svg{max-width:100%; display:block;}
+
+a{text-decoration:none; color:inherit;}
+
+ul{list-style:none;}
+
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 24px;
+}
+
+section{padding:90px 0; scroll-margin-top:90px;}

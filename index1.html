@@ -1,0 +1,720 @@
+html
+Копировать
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>КотоДом — Питомник кошек</title>
+    <!-- Современная типографика из Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Сброс стилей и базовые настройки */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        /* Цветовая палитра */
+        :root {
+            --pink-light: #fce4ec; /* пудровый */
+            --pink-medium: #f8bbd0; /* светло-розовый */
+            --pink-accent: #e91e63; /* малиновый */
+            --pink-dark: #c2185b; /* фуксия для акцентов */
+            --text-dark: #212121;
+            --text-medium: #616161;
+            --border-light: #e0e0e0;
+        }
+
+        /* Контейнеры */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--pink-accent);
+            border-radius: 2px;
+            margin: 15px auto 0;
+        }
+
+        /* Кнопки */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--pink-accent);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.2);
+            min-width: 180px;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: var(--pink-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(233, 30, 99, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--pink-accent);
+            color: var(--pink-accent);
+        }
+
+        .btn-outline:hover {
+            background: var(--pink-accent);
+            color: #fff;
+        }
+
+        /* Навигация */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--pink-dark);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-medium);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--pink-accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--pink-dark);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+        }
+
+        .burger span {
+            width: 25px;
+            height: 2px;
+            background: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--pink-light) 0%, #fff 100%);
+            padding-top: 120px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--pink-dark) 0%, var(--pink-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-medium);
+            margin-bottom: 40px;
+        }
+
+        /* Карточки кошек */
+        .cats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .cat-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--pink-accent);
+        }
+
+        .cat-photo {
+            width: 100%;
+            height: 220px;
+            background: var(--pink-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .cat-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cat-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--text-dark);
+        }
+
+        .cat-age {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            margin-bottom: 15px;
+        }
+
+        .cat-desc {
+            font-size: 0.95rem;
+            color: var(--text-medium);
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+
+        .cat-btn {
+            margin-top: auto;
+            align-self: flex-start;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+        }
+
+        /* Процесс усыновления */
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 250px;
+            background: var(--pink-light);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--pink-accent);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 0 auto 20px;
+        }
+
+        .step-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        /* Отзывы */
+        .testimonials {
+            background: var(--pink-light);
+            border-radius: 20px;
+            padding: 40px;
+        }
+
+        .testimonial {
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            font-size: 8rem;
+            color: var(--pink-light);
+            opacity: 0.3;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .testimonial-cat {
+            color: var(--pink-accent);
+            font-weight: 500;
+        }
+
+        /* Контакты */
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            color: var(--text-medium);
+        }
+
+        .contact-info strong {
+            color: var(--text-dark);
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .map-placeholder {
+            background: var(--pink-light);
+            height: 300px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-medium);
+            font-size: 1.2rem;
+        }
+
+        /* Футер */
+        footer {
+            background: var(--text-dark);
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .footer-links a {
+            color: var(--pink-accent);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            .steps {
+                flex-direction: column;
+            }
+            .contacts-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 60px 0;
+            }
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: #fff;
+                width: 250px;
+                height: calc(100vh - 70px);
+                padding: 40px 20px;
+                box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+                transition: left 0.3s ease;
+                z-index: 999;
+            }
+            .nav-menu.active {
+                left: 0;
+            }
+            .burger {
+                display: flex;
+            }
+            .burger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(7px, 7px);
+            }
+            .burger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .burger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -7px);
+            }
+            .cats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            .btn {
+                padding: 12px 24px;
+                min-width: auto;
+            }
+            .cat-photo {
+                height: 180px;
+            }
+            .testimonials {
+                padding: 20px;
+            }
+            .testimonial {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav class="nav container">
+        <a href="#" class="logo">КотоДом</a>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#cats">Наши кошки</a></li>
+            <li><a href="#process">Как попасть к нам</a></li>
+            <li><a href="#help">Как помочь</a></li>
+            <li><a href="#reviews">Отзывы</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+        </ul>
+        <button class="burger" id="burger" aria-label="Открыть меню">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Найди своего пушистого друга</h1>
+                <p class="hero-subtitle">Питомник «КотоДом» — мы помогаем кошкам найти любящие семьи, а людям — обрести счастье. Все наши питомцы здоровы, привиты и ищут дом.</p>
+                <a href="#cats" class="btn">Посмотреть кошек</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section container">
+        <h2 class="section-title">О нас</h2>
+        <p>Питомник «КотоДом» был основан в 2018 году группой энтузиастов, которые не смогли пройти мимо бездомных животных на улицах нашего города. Наша миссия — не просто пристроить кошку, а создать идеальную пару «человек — питомец».</p>
+        <p>Мы не заводчики в коммерческом смысле. Мы — спасатели. Каждая кошка, попадающая к нам, проходит полный ветеринарный осмотр, обработку от паразитов, вакцинацию и стерилизацию. Мы лечим, социализируем и учим доверять людям снова. За 6 лет работы мы нашли дом для более чем 400 кошек.</p>
+    </section>
+
+    <section id="cats" class="section container">
+        <h2 class="section-title">Наши кошки</h2>
+        <div class="cats-grid">
+            <!-- Карточка 1 -->
+            <div class="cat-card">
+                <div class="cat-photo" aria-label="Фото кошки">🐈</div>
+                <div class="cat-info">
+                    <h3 class="cat-name">Мурка</h3>
+                    <p class="cat-age">3 года, ласковая</p>
+                    <p class="cat-desc">Обожает лежать на коленях и громко мурчать. Идеальна для тихих вечеров с книгой. Немного стеснительная с незнакомцами.</p>
+                    <a href="#" class="btn btn-outline cat-btn">Узнать больше</a>
+                </div>
+            </div>
+            <!-- Карточка 2 -->
+            <div class="cat-card">
+                <div class="cat-photo" aria-label="Фото кота">🐈‍⬛</div>
+                <div class="cat-info">
+                    <h3 class="cat-name">Барсик</h3>
+                    <p class="cat-age">1 год, активный</p>
+                    <p class="cat-desc">Настоящий охотник на лазерные указки и солнечных зайчиков. Требует много игрушек и внимания. Обладает шикарными усами.</p>
+                    <a href="#" class="btn btn-outline cat-btn">Узнать больше</a>
+                </div>
+            </div>
+            <!-- Карточка 3 -->
+            <div class="cat-card">
+                <div class="cat-photo" aria-label="Фото кошки">🐱</div>
+                <div class="cat-info">
+                    <h3 class="cat-name">Соня</h3>
+                    <p class="cat-age">5 лет, спокойная</p>
+                    <p class="cat-desc">Королева диванов. Её главные хобби — сон, еда и снова сон. Идеальный компаньон для тех, кто ценит тишину и уют.</p>
+                    <a href="#" class="btn btn-outline cat-btn">Узнать больше</a>
+                </div>
+            </div>
+            <!-- Карточка 4 -->
+            <div class="cat-card">
+                <div class="cat-photo" aria-label="Фото кота">🐆</div>
+                <div class="cat-info">
+                    <h3 class="cat-name">Тигра</h3>
+                    <p class="cat-age">2 года, игривый</p>
+                    <p class="cat-desc">Полосатый хулиган с огромным сердцем. Обожает бегать за мячиками и сидеть на плече у хозяина, как попугай.</p>
+                    <a href="#" class="btn btn-outline cat-btn">Узнать больше</a>
+                </div>
+            </div>
+            <!-- Карточка 5 -->
+            <div class="cat-card">
+                <div class="cat-photo" aria-label="Фото кошки">🐾</div>
+                <div class="cat-info">
+                    <h3 class="cat-name">Персик</h3>
+                    <p class="cat-age">8 месяцев, котенок</p>
+                    <p class="cat-desc">Пушистое облако с глазами цвета меда. Самый младший в нашем прайде, полон энергии и детского любопытства.</p>
+                    <a href="#" class="btn btn-outline cat-btn">Узнать больше</a>
+                </div>
+            </div>
+            <!-- Карточка 6 -->
+            <div class="cat-card">
+                <div class="cat-photo" aria-label="Фото кота">🦁</div>
+                <div class="cat-info">
+                    <h3 class="cat-name">Лео</h3>
+                    <p class="cat-age">4 года, мудрый</p>
+                    <p class="cat-desc">Спокойный и рассудительный кот с повадками льва. Наблюдает за миром с высоты шкафа. Идеален для семьи с детьми.</p>
+                    <a href="#" class="btn btn-outline cat-btn">Узнать больше</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="section container">
+        <h2 class="section-title">Как попасть к нам</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3 class="step-title">Знакомство</h3>
+                <p>Выберите кошку на сайте или приезжайте в питомник. Мы познакомим вас с характером каждого питомца, чтобы найти идеальное совпадение.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3 class="step-title">Собеседование</h3>
+                <p>Мы проведем небольшое интервью. Это не экзамен, мы просто хотим убедиться, что у вас есть все условия для счастливой кошачьей жизни.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3 class="step-title">Подготовка дома</h3>
+                <p>Мы дадим список необходимых вещей (лоток, корм, когтеточка) и рекомендации по адаптации кошки в новом пространстве.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3 class="step-title">Забор питомца</h3>
+                <p>Подписание договора ответственного содержания. Вы получаете ветпаспорт, немного корма на первое время и нового члена семьи.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="help" class="section container">
+        <h2 class="section-title">Как помочь</h2>
+        <p>Наш питомник существует только благодаря неравнодушным людям. Вы можете помочь нам несколькими способами:</p>
+        <ul style="margin-top: 20px; color: var(--text-medium); line-height: 1.8;">
+            <li><strong>Финансовая помощь:</strong> Перевод на нужды клиники (операции, лекарства, корм). Реквизиты: 2200 0000 1111 2222 (КотоДом)</li>
+            <li><strong>Вещи:</strong> Всегда нужны впитывающие пеленки, качественный сухой корм, древесный наполнитель, игрушки и когтеточки.</li>
+            <li><strong>Волонтерство:</strong> Помощь в социализации кошек, транспортировка в клинику, фотографирование наших пушистых моделей.</li>
+            <li><strong>Временный дом:</strong> Станьте фостером — возьмите кошку на передержку, пока мы ищем ей постоянную семью.</li>
+        </ul>
+        <div style="margin-top: 40px; text-align: center;">
+            <a href="#" class="btn btn-outline">Хочу помочь</a>
+        </div>
+    </section>
+
+    <section id="reviews" class="section container">
+        <h2 class="section-title">Отзывы</h2>
+        <div class="testimonials">
+            <div class="testimonial">
+                <p class="testimonial-text">«Мы забрали Барсика три месяца назад. Это не кот, а вечный двигатель! Он заставил нас снова полюбить утренние пробежки по квартире. Спасибо команде КотоДома за то, что спасли его с улицы».</p>
+                <p class="testimonial-author">Анна и Михаил <span class="testimonial-cat">(хозяева Барсика)</span></p>
+            </div>
+            <div class="testimonial">
+                <p class="testimonial-text">«Соня — моя душа. Я давно хотела спокойную взрослую кошку, и в КотоДоме мне подобрали идеальную пару. Она приехала с полным пакетом документов и уже через час спала у меня на груди».</p>
+                <p class="testimonial-author">Елена <span class="testimonial-cat">(хозяйка Сони)</span></p>
+            </div>
+            <div class="testimonial">
+                <p class="testimonial-text">«Огромное спасибо за Тигру! Дети в восторге от его полосок и умения приносить мячик. Отдельная благодарность за подробные инструкции по адаптации — переезд прошел абсолютно спокойно».</p>
+                <p class="testimonial-author">Семья Петровых <span class="testimonial-cat">(хозяева Тигры)</span></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacts" class="section container">
+        <h2 class="section-title">Контакты</h2>
+        <div class="contacts-grid">
+            <div class="contact-info">
+                <p><strong>Адрес:</strong> г. Москва, ул. Кошачья, д. 1, вход со двора</p>
+                <p><strong>Часы работы:</strong> Ежедневно с 10:00 до 20:00 (только по предварительной договоренности)</p>
+                <p><strong>Телефон:</strong> <a href="tel:+74951234567" style="color: var(--pink-accent);">+7 (495) 123-45-67</a></p>
+                <p><strong>Email:</strong> <a href="mailto:info@kotodom.ru" style="color: var(--pink-accent);">info@kotodom.ru</a></p>
+                <p><strong>Социальные сети:</strong> <a href="#" style="color: var(--pink-accent);">@kotodom_shelter</a></p>
+            </div>
+            <div class="map-placeholder" aria-label="Карта проезда">
+                📍 Карта проезда (интерактивная карта будет здесь)
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2024 Питомник «КотоДом». Все права защищены.</p>
+        <div class="footer-links">
+            <a href="#about">О нас</a>
+            <a href="#cats">Наши кошки</a>
+            <a href="#process">Усыновление</a>
+            <a href="#help">Помощь</a>
+            <a href="#contacts">Контакты</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Плавное открытие/закрытие бургер-меню
+    const burger = document.getElementById('burger');
+    const navMenu = document.getElementById('navMenu');
+
+    burger.addEventListener('click', () => {
+        burger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    // Закрытие меню при клике на ссылку (для мобильных)
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            burger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+
+    // Доступность: управление фокусом и Esc для закрытия меню
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+            burger.classList.remove('active');
+            navMenu.classList.remove('active');
+            burger.focus();
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Приют и питомник «КотоДом» — помогаем кошкам найти любящую семью. Более 500 кошек нашли дом: лечение, социализация, усыновление, помощь приюту.">
+<meta name="author" content="Приют «КотоДом»">
+<meta name="theme-color" content="#e0558f">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="КотоДом — питомник и приют для кошек">
+<meta property="og:description" content="Подари кошке дом, а себе — верного друга. Более 500 кошек уже нашли семью благодаря «КотоДому».">
+<meta property="og:url" content="https://kotodom.ru/">
+<meta property="og:image" content="https://kotodom.ru/og-image.jpg">
+<meta property="og:site_name" content="КотоДом">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="КотоДом — питомник и приют для кошек">
+<meta name="twitter:description" content="Подари кошке дом, а себе — верного друга. Более 500 кошек нашли семью.">
+<meta name="twitter:image" content="https://kotodom.ru/og-image.jpg">
+
+<link rel="canonical" href="https://kotodom.ru/">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<title>КотоДом — питомник и приют для кошек</title>
+
+<!-- Шрифты -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<!-- Стили (вынесены из монолита) -->
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/responsive.css">
+
+<!-- Структурированные данные: некоммерческая организация -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  "name": "КотоДом",
+  "description": "Приют и питомник для кошек: лечение, социализация и поиск семьи для бездомных кошек.",
+  "url": "https://kotodom.ru/",
+  "email": "hello@kotodom.ru",
+  "telephone": "+79997654321",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "ул. Пушистая, д. 12",
+    "addressLocality": "Москва",
+    "addressCountry": "RU"
+  },
+  "openingHours": ["Mo-Fr 10:00-19:00", "Sa-Su 11:00-18:00"],
+  "areaServed": "Москва"
+}
+</script>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="container nav-inner">
+    <a href="#top" class="logo">Кото<span>Дом</span></a>
+    <nav class="nav-links" aria-label="Основная навигация">
+      <a href="#about">О нас</a>
+      <a href="#cats">Наши кошки</a>
+      <a href="#adoption">Усыновление</a>
+      <a href="#help">Как помочь</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Мобильная навигация">
+    <a href="#about">О нас</a>
+    <a href="#cats">Наши кошки</a>
+    <a href="#adoption">Усыновление</a>
+    <a href="#help">Как помочь</a>
+    <a href="#reviews">Отзывы</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="container" style="display:flex; align-items:center; gap:40px; flex-wrap:wrap;">
+      <div class="hero-text">
+        <h1>Подари кошке дом, а себе — верного друга</h1>
+        <p>«КотоДом» — приют и питомник, где каждая кошка ждёт свою семью. Мы помогаем найти добрые руки для бездомных и спасённых кошек города.</p>
+        <div class="hero-buttons">
+          <a href="#cats" class="btn btn-primary">Посмотреть кошек</a>
+          <a href="#help" class="btn btn-ghost">Как помочь</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-circle" role="img" aria-label="Иллюстрация кота">🐱</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>О приюте «КотоДом»</h2>
+        <p>Мы работаем уже более 7 лет, чтобы у каждой кошки был шанс на счастливую жизнь</p>
+      </div>
+      <div class="about-grid">
+        <div>
+          <p>«КотоДом» начинался как небольшая квартирная передержка, а сегодня это полноценный приют, через который прошло более 500 кошек. Мы забираем животных с улицы, лечим, социализируем и находим им заботливых хозяев.</p>
+          <br>
+          <p>Наша миссия — сделать так, чтобы ни одна кошка в городе не осталась без дома и заботы.</p>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px;">
+          <div class="about-card">
+            <h3>500+</h3>
+            <p>кошек нашли дом</p>
+          </div>
+          <div class="about-card">
+            <h3>7 лет</h3>
+            <p>помогаем животным</p>
+          </div>
+          <div class="about-card">
+            <h3>30+</h3>
+            <p>волонтёров</p>
+          </div>
+          <div class="about-card">
+            <h3>24/7</h3>
+            <p>забота и уход</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cats -->
+  <section id="cats">
+    <div class="container">
+      <div class="section-title">
+        <h2>Наши кошки</h2>
+        <p>Познакомьтесь с теми, кто уже ждёт свою семью</p>
+      </div>
+      <div class="cats-grid">
+        <div class="cat-card">
+          <img class="cat-avatar" src="барсик1.jpg" alt="Кот Барсик" width="100" height="100" loading="lazy">
+          <h3>Барсик</h3>
+          <div class="cat-age">2 года · кот</div>
+          <p>Ласковый и спокойный, обожает сидеть на коленях и мурлыкать по вечерам.</p>
+          <a href="#adopt-form" class="btn btn-primary cat-adopt-btn" data-cat="Барсик">Забрать Барсика</a>
+        </div>
+        <div class="cat-card">
+          <img class="cat-avatar" src="муся2.jpg" alt="Кошка Муся" width="100" height="100" loading="lazy">
+          <h3>Муся</h3>
+          <div class="cat-age">1 год · кошка</div>
+          <p>Игривая и любопытная, быстро находит общий язык с детьми.</p>
+          <a href="#adopt-form" class="btn btn-primary cat-adopt-btn" data-cat="Муся">Забрать Мусю</a>
+        </div>
+        <div class="cat-card">
+          <img class="cat-avatar" src="рыжик3.jpg" alt="Кот Рыжик" width="100" height="100" loading="lazy">
+          <h3>Рыжик</h3>
+          <div class="cat-age">3 года · кот</div>
+          <p>Независимый характер, но очень предан своему хозяину.</p>
+          <a href="#adopt-form" class="btn btn-primary cat-adopt-btn" data-cat="Рыжик">Забрать Рыжика</a>
+        </div>
+        <div class="cat-card">
+          <img class="cat-avatar" src="соня4.jpg" alt="Кошка Соня" width="100" height="100" loading="lazy">
+          <h3>Соня</h3>
+          <div class="cat-age">6 месяцев · кошка</div>
+          <p>Маленький пушистый комочек энергии, обожает играть с игрушками.</p>
+          <a href="#adopt-form" class="btn btn-primary cat-adopt-btn" data-cat="Соня">Забрать Соню</a>
+        </div>
+        <div class="cat-card">
+          <img class="cat-avatar" src="дымок5.jpg" alt="Кот Дымок" width="100" height="100" loading="lazy">
+          <h3>Дымок</h3>
+          <div class="cat-age">4 года · кот</div>
+          <p>Спокойный серый красавец, идеально подойдёт для квартиры.</p>
+          <a href="#adopt-form" class="btn btn-primary cat-adopt-btn" data-cat="Дымок">Забрать Дымка</a>
+        </div>
+        <div class="cat-card">
+          <img class="cat-avatar" src="белла6.jpg" alt="Кошка Белла" width="100" height="100" loading="lazy">
+          <h3>Белла</h3>
+          <div class="cat-age">2 года · кошка</div>
+          <p>Белоснежная аристократка, любит внимание и нежные поглаживания.</p>
+          <a href="#adopt-form" class="btn btn-primary cat-adopt-btn" data-cat="Белла">Забрать Беллу</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Adoption steps -->
+  <section class="steps" id="adoption">
+    <div class="container">
+      <div class="section-title">
+        <h2>Как забрать кота домой</h2>
+        <p>Простой процесс усыновления всего в четыре шага</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Выбор кошки</h3>
+          <p>Посмотрите анкеты наших питомцев и выберите того, кто откликнется в сердце.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Заявка</h3>
+          <p>Заполните короткую анкету будущего хозяина на сайте или по телефону.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Знакомство</h3>
+          <p>Приезжайте в приют, чтобы познакомиться с кошкой лично.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <h3>Новый дом</h3>
+          <p>Забираете питомца домой — мы остаёмся на связи и помогаем советом.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Help -->
+  <section id="help">
+    <div class="container">
+      <div class="section-title">
+        <h2>Как помочь приюту</h2>
+        <p>Даже небольшая помощь меняет жизнь наших подопечных</p>
+      </div>
+      <div class="help-grid">
+        <div class="help-card">
+          <div class="help-icon">💝</div>
+          <h3>Донат</h3>
+          <p>Финансовая помощь идёт на корм, лечение и содержание кошек.</p>
+        </div>
+        <div class="help-card">
+          <div class="help-icon">🙌</div>
+          <h3>Волонтёрство</h3>
+          <p>Приходите помогать с уборкой, прогулками и социализацией кошек.</p>
+        </div>
+        <div class="help-card">
+          <div class="help-icon">🍲</div>
+          <h3>Корм и вещи</h3>
+          <p>Нужны корм, наполнитель, лежанки, переноски и средства для уборки.</p>
+        </div>
+      </div>
+      <div class="help-actions">
+        <a href="tel:+79997654321" class="btn btn-primary">Позвонить волонтёру</a>
+        <a href="mailto:hello@kotodom.ru?subject=Хочу помочь приюту «КотоДом»" class="btn btn-ghost">Хочу помочь</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="section-title">
+        <h2>Отзывы новых хозяев</h2>
+        <p>Истории семей, которые нашли своего котика в «КотоДоме»</p>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>«Забрали Барсика два месяца назад — он стал настоящим членом семьи. Спасибо приюту за заботу о кошках!»</p>
+          <div class="review-author">
+            <div class="review-avatar">👩</div>
+            <div><strong>Анна</strong><span>хозяйка Барсика</span></div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>«Очень тёплое отношение сотрудников, помогли с выбором котёнка и ответили на все вопросы».</p>
+          <div class="review-author">
+            <div class="review-avatar">👨</div>
+            <div><strong>Игорь</strong><span>хозяин Дымка</span></div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>«Муся полностью изменила нашу жизнь к лучшему. Очень благодарны волонтёрам приюта!»</p>
+          <div class="review-author">
+            <div class="review-avatar">👩‍🦰</div>
+            <div><strong>Екатерина</strong><span>хозяйка Муси</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacts -->
+  <section id="contacts">
+    <div class="container">
+      <div class="section-title">
+        <h2>Контакты</h2>
+        <p>Приезжайте познакомиться с нашими кошками лично</p>
+      </div>
+      <div class="contacts-grid">
+        <div>
+          <div class="contact-row">
+            <div class="contact-icon">📍</div>
+            <div>
+              <h4>Адрес</h4>
+              <p>г. Москва, ул. Пушистая, д. 12</p>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">🕒</div>
+            <div>
+              <h4>Часы посещения</h4>
+              <p>Пн–Пт: 10:00–19:00<br>Сб–Вс: 11:00–18:00</p>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">📞</div>
+            <div>
+              <h4>Телефон</h4>
+              <p>+7 (999) 765-43-21</p>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <h4>Email</h4>
+              <p>hello@kotodom.ru</p>
+            </div>
+          </div>
+        </div>
+        <div class="map-visual" role="img" aria-label="Схематичное изображение карты расположения приюта">🗺️</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Adoption form -->
+  <section class="adopt-form-section" id="adopt-form">
+    <div class="container">
+      <div class="section-title">
+        <h2>Заявка на усыновление</h2>
+        <p>Заполните форму — мы свяжемся с вами в течение дня</p>
+      </div>
+
+      <form class="adopt-form" id="adoptForm" novalidate>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="f-name">Ваше имя *</label>
+            <input type="text" id="f-name" name="name" required autocomplete="name" placeholder="Иван">
+          </div>
+          <div class="form-field">
+            <label for="f-phone">Телефон *</label>
+            <input type="tel" id="f-phone" name="phone" required autocomplete="tel" placeholder="+7 (900) 000-00-00">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="f-email">Email *</label>
+            <input type="email" id="f-email" name="email" required autocomplete="email" placeholder="you@example.com">
+          </div>
+          <div class="form-field">
+            <label for="f-cat">Кого хотите забрать? *</label>
+            <select id="f-cat" name="cat" required>
+              <option value="">— Выберите кошку —</option>
+              <option value="Барсик">Барсик</option>
+              <option value="Муся">Муся</option>
+              <option value="Рыжик">Рыжик</option>
+              <option value="Соня">Соня</option>
+              <option value="Дымок">Дымок</option>
+              <option value="Белла">Белла</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="f-comment">Комментарий</label>
+          <textarea id="f-comment" name="comment" rows="4" placeholder="Расскажите о себе и опыте содержания кошек"></textarea>
+        </div>
+
+        <label class="form-check">
+          <input type="checkbox" name="consent" required>
+          <span>Согласен(на) на обработку персональных данных *</span>
+        </label>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="submitBtn">Отправить заявку</button>
+          <p class="form-hint">или позвоните: <a href="tel:+79997654321">+7 (999) 765-43-21</a></p>
+        </div>
+
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="#about">О нас</a>
+      <a href="#cats">Наши кошки</a>
+      <a href="#adoption">Усыновление</a>
+      <a href="#help">Как помочь</a>
+      <a href="#contacts">Контакты</a>
+    </div>
+    <p>© 2026 Приют «КотоДом». Все права защищены.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+/* ============================================================
+   КотоДом — адаптивность (извлечено из монолитного index.html)
+   ============================================================ */
+
+@media (max-width:1024px){
+  .cats-grid{grid-template-columns:repeat(2, 1fr);}
+  .steps-grid{grid-template-columns:repeat(2, 1fr);}
+  .help-grid, .reviews-grid{grid-template-columns:repeat(2, 1fr);}
+}
+
+@media (max-width:768px){
+  .nav-links{display:none;}
+  .burger{display:flex;}
+  .about-grid, .contacts-grid{grid-template-columns:1fr;}
+  .hero{padding-top:150px; text-align:center; justify-content:center;}
+  .hero-buttons{justify-content:center;}
+  .hero-text p{margin-left:auto; margin-right:auto;}
+  .form-row{grid-template-columns:1fr;}
+}
+
+@media (max-width:480px){
+  section{padding:60px 0;}
+  .hero-text h1{font-size:2.1rem;}
+  .cats-grid, .steps-grid, .help-grid, .reviews-grid{grid-template-columns:1fr;}
+  .hero-circle{width:220px; height:220px; font-size:5rem;}
+  .adopt-form{padding:24px 18px;}
+  .form-actions{flex-direction:column; align-items:stretch;}
+  .form-actions .btn{width:100%;}
+  .help-actions{flex-direction:column; align-items:stretch;}
+  .help-actions .btn{width:100%; min-width:0;}
+}
