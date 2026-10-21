@@ -115,16 +115,22 @@ header.scrolled{
 .burger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
 
 .mobile-menu{
-  display:none;
+  display:flex;
   flex-direction:column;
   gap:4px;
   background:var(--cream-2);
   border-radius:0 0 18px 18px;
   overflow:hidden;
   max-height:0;
-  transition:max-height .35s ease;
+  opacity:0;
+  visibility:hidden;
+  transition:max-height .35s ease, opacity .35s ease, visibility .35s ease;
 }
-.mobile-menu.open{max-height:400px;}
+.mobile-menu.open{
+  max-height:400px;
+  opacity:1;
+  visibility:visible;
+}
 .mobile-menu a{
   padding:16px 24px;
   font-weight:700;
