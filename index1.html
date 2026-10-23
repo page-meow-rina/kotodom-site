@@ -201,6 +201,7 @@
             font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 20px;
+            color: var(--pink-dark);
             background: linear-gradient(135deg, var(--pink-dark) 0%, var(--pink-accent) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -506,7 +507,7 @@
             <li><a href="#reviews">Отзывы</a></li>
             <li><a href="#contacts">Контакты</a></li>
         </ul>
-        <button class="burger" id="burger" aria-label="Открыть меню">
+        <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="navMenu">
             <span></span>
             <span></span>
             <span></span>
@@ -691,8 +692,10 @@
     const navMenu = document.getElementById('navMenu');
 
     burger.addEventListener('click', () => {
-        burger.classList.toggle('active');
-        navMenu.classList.toggle('active');
+        const isOpen = navMenu.classList.toggle('active');
+        burger.classList.toggle('active', isOpen);
+        burger.setAttribute('aria-expanded', String(isOpen));
+        burger.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
     });
 
     // Закрытие меню при клике на ссылку (для мобильных)
@@ -701,6 +704,8 @@
         link.addEventListener('click', () => {
             burger.classList.remove('active');
             navMenu.classList.remove('active');
+            burger.setAttribute('aria-expanded', 'false');
+            burger.setAttribute('aria-label', 'Открыть меню');
         });
     });
 
@@ -709,6 +714,8 @@
         if (e.key === 'Escape' && navMenu.classList.contains('active')) {
             burger.classList.remove('active');
             navMenu.classList.remove('active');
+            burger.setAttribute('aria-expanded', 'false');
+            burger.setAttribute('aria-label', 'Открыть меню');
             burger.focus();
         }
     });
